@@ -82,7 +82,7 @@ class AddProject extends Component {
           <div>
             <label>Category</label>
             <select ref="category">
-              <option value="" defaultValue disabled hidden>
+              <option value="" selected disabled hidden>
                 Select category
               </option>
               {categoryOptions}
