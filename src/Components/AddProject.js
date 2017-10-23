@@ -1,5 +1,5 @@
-import React, { Component, StyleSheets } from 'react';
-import addProjectStyle from './styles/addProjectStyle.css';
+import React, { Component } from 'react';
+import uuid from 'uuid';
 
 class AddProject extends Component {
   constructor(props) {
@@ -32,6 +32,7 @@ class AddProject extends Component {
     this.setState(
       {
         newProject: {
+          id: uuid.v4(),
           title: this.refs.title.value,
           category: this.refs.category.value,
         },
@@ -67,7 +68,7 @@ class AddProject extends Component {
       <div className="AddProject">
         <h3>Add Project</h3>
         {this.state.formError ? (
-          <h4 className="addProjectFormError">
+          <h4 style={{color: 'red'}} className="addProjectFormError">
             Please enter project title, and choose category.
           </h4>
         ) : (
@@ -81,7 +82,7 @@ class AddProject extends Component {
           <div>
             <label>Category</label>
             <select ref="category">
-              <option value="" selected disabled hidden>
+              <option value="" defaultValue disabled hidden>
                 Select category
               </option>
               {categoryOptions}
@@ -95,3 +96,4 @@ class AddProject extends Component {
 }
 
 export default AddProject;
+
