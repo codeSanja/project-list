@@ -14,6 +14,7 @@ class App extends Component {
     };
 
     this.handleAddProject = this.handleAddProject.bind(this);
+    this.handleDeleteProject = this.handleDeleteProject.bind(this);
   }
 
   componentWillMount() {
@@ -43,12 +44,18 @@ class App extends Component {
     projects.push(newProject);
     this.setState({ projects });
   }
+  handleDeleteProject(id) {
+    console.log('handleDeleteProject: ' + id);
+  }
 
   render() {
     return (
       <div className="App">
         <AddProject addProject={this.handleAddProject} />
-        <Projects projects={this.state.projects} />
+        <Projects
+          projects={this.state.projects}
+          deleteProject={this.handleDeleteProject}
+        />
       </div>
     );
   }

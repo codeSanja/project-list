@@ -8,9 +8,9 @@ class Projects extends Component {
     this.deleteProject = this.deleteProject.bind(this);
   }
 
-    deleteProject(id){
-      console.log("Delete: "+id)
-    }
+  deleteProject(id) {
+    this.props.deleteProject(id);
+  }
 
   render() {
     let projectItems = [];
