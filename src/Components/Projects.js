@@ -7,9 +7,9 @@ class Projects extends Component {
   }
 
   render() {
-    var projectItems = [];
+    let projectItems = [];
     if (this.props.projects) {
-      projectItems = this.props.projects.map(project => {
+      projectItems = this.props.projects.map((project) => {
         console.log(project);
         return <ProjectItem project={project} />;
       });
@@ -19,7 +19,7 @@ class Projects extends Component {
 
     return (
       <div className="Projects" projects={this.props.projects}>
-          {projectItems}
+        {projectItems}
       </div>
     );
   }
