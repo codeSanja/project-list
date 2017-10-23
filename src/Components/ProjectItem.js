@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class ProjectItem extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.deleteProject = this.deleteProject.bind(this);

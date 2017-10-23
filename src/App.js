@@ -45,7 +45,10 @@ class App extends Component {
     this.setState({ projects });
   }
   handleDeleteProject(id) {
-    console.log('handleDeleteProject: ' + id);
+    let projects = this.state.projects;
+    let index = projects.findIndex(prod => prod.id === id);
+    projects.splice(index, 1);
+    this.setState({ projects });
   }
 
   render() {
