@@ -1,0 +1,1 @@
+find ./src/*.js | xargs prettier --write --print-width 80 --single-quote --trailing-comma es5
