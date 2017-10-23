@@ -2,12 +2,28 @@ import React, { Component } from 'react';
 import ProjectItem from './ProjectItem';
 
 class Projects extends Component {
+  constructor(props) {
+    super(props);
+
+    this.deleteProject = this.deleteProject.bind(this);
+  }
+
+    deleteProject(id){
+      console.log("Delete: "+id)
+    }
+
   render() {
     let projectItems = [];
     if (this.props.projects) {
       projectItems = this.props.projects.map(project => {
         console.log(project);
-        return <ProjectItem key={project.id} project={project} />;
+        return (
+          <ProjectItem
+            key={project.id}
+            project={project}
+            deleteProject={this.deleteProject}
+          />
+        );
       });
     } else {
       projectItems = [];

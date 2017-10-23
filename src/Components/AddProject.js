@@ -68,7 +68,7 @@ class AddProject extends Component {
       <div className="AddProject">
         <h3>Add Project</h3>
         {this.state.formError ? (
-          <h4 style={{color: 'red'}} className="addProjectFormError">
+          <h4 style={{ color: 'red' }} className="addProjectFormError">
             Please enter project title, and choose category.
           </h4>
         ) : (
