@@ -15,6 +15,7 @@ class AddProject extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.valuesAreEntered = this.valuesAreEntered.bind(this);
+    this.addNewProject = this.addNewProject.bind(this);
   }
 
   componentWillMount() {}
@@ -27,20 +28,24 @@ class AddProject extends Component {
     return this.refs.title.value && this.refs.category.value;
   }
 
+  addNewProject() {
+    this.setState(
+      {
+        newProject: {
+          title: this.refs.title.value,
+          category: this.refs.category.value,
+        },
+        formError: false,
+      },
+      function() {
+        this.props.addProject(this.state.newProject);
+      },
+    );
+  }
+
   handleSubmit(e) {
     if (this.valuesAreEntered()) {
-      this.setState(
-        {
-          newProject: {
-            title: this.refs.title.value,
-            category: this.refs.category.value,
-          },
-          formError: false,
-        },
-        function(a) {
-          this.props.addProject(this.state.newProject);
-        },
-      );
+      this.addNewProject();
     } else {
       this.setState({
         formError: true,
