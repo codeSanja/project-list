@@ -8,9 +8,7 @@ class ProjectItem extends Component {
   }
 
   deleteProject(e) {
-    console.log('test');
-
-    this.props.deleteProject('testId');
+    this.props.deleteProject(this.props.project.id);
     e.preventDefault();
   }
 
@@ -19,7 +17,7 @@ class ProjectItem extends Component {
       <li className="ProjectItem">
         {this.props.project.title} - {this.props.project.category}
         <span> </span>
-        <a href="" onClick={this.deleteProject}>
+        <a href="/" onClick={this.deleteProject}>
           <strong>x</strong>
         </a>
       </li>
