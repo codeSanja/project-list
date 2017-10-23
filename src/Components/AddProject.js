@@ -28,14 +28,19 @@ class AddProject extends Component {
   }
 
   handleSubmit(e) {
-    // console.log(this.refs);
     if (this.valuesAreEntered()) {
-      this.setState({
-        newProject: {
-          title: this.refs.title.value,
-          category: this.refs.category.value,
+      this.setState(
+        {
+          newProject: {
+            title: this.refs.title.value,
+            category: this.refs.category.value,
+          },
+          formError: false,
         },
-      });
+        function(a) {
+          this.props.addProject(this.state.newProject);
+        },
+      );
     } else {
       this.setState({
         formError: true,
@@ -56,7 +61,13 @@ class AddProject extends Component {
     return (
       <div className="AddProject">
         <h3>Add Project</h3>
-        {this.state.formError ? <h4 className="addProjectFormError">Please enter project title, and choose category.</h4> : ""}
+        {this.state.formError ? (
+          <h4 className="addProjectFormError">
+            Please enter project title, and choose category.
+          </h4>
+        ) : (
+          ''
+        )}
         <form onSubmit={this.handleSubmit}>
           <div>
             <label>Title: </label>
@@ -79,4 +90,3 @@ class AddProject extends Component {
 }
 
 export default AddProject;
-

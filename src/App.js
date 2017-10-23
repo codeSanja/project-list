@@ -11,6 +11,8 @@ class App extends Component {
     this.state = {
       projects: []
     };
+
+    this.addProject = this.addProject.bind(this);
   }
 
   componentWillMount() {
@@ -18,24 +20,29 @@ class App extends Component {
       projects: [
         {
           title: 'Business Website',
-          category: 'Web Design'
+          category: 'Web Design',
         },
         {
           title: 'Social App',
-          category: 'Mobile Development'
+          category: 'Mobile Development',
         },
         {
           title: 'Ecommerce Shopping Cart',
-          category: 'Web Development'
+          category: 'Web Development',
         },
       ],
     });
   }
 
+  addProject(newProject) {
+    console.log('In App.js');
+    console.log(newProject);
+  }
+
   render() {
     return (
       <div className="App">
-        <AddProject/>
+        <AddProject addProject={this.addProject} />
         <Projects projects={this.state.projects} />
       </div>
     );
