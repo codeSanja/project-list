@@ -9,10 +9,10 @@ class App extends Component {
     super(props);
 
     this.state = {
-      projects: []
+      projects: [],
     };
 
-    this.addProject = this.addProject.bind(this);
+    this.handleAddProject = this.handleAddProject.bind(this);
   }
 
   componentWillMount() {
@@ -34,15 +34,16 @@ class App extends Component {
     });
   }
 
-  addProject(newProject) {
-    console.log('In App.js');
-    console.log(newProject);
+  handleAddProject(newProject) {
+    let projects = this.state.projects;
+    projects.push(newProject);
+    this.setState({projects});
   }
 
   render() {
     return (
       <div className="App">
-        <AddProject addProject={this.addProject} />
+        <AddProject addProject={this.handleAddProject} />
         <Projects projects={this.state.projects} />
       </div>
     );
